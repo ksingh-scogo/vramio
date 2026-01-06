@@ -114,13 +114,13 @@ def estimate_memory(model_id: str, revision: str = "main") -> dict:
         return {
             "model": model_id,
             "total_parameters": fmt_params(total_params),
-            "native_dtype": max(dtype_counts, key=dtype_counts.get),
-            "native_memory": fmt_size(total_bytes),
-            "memory_requirements": {
-                "full_precision_fp32": fmt_size(total_params * 4),
-                "half_precision_fp16_bf16": fmt_size(total_params * 2),
-                "quantized_int8": fmt_size(total_params * 1),
-                "quantized_int4": fmt_size(total_params * 0.5),
+            "memory_required": fmt_size(total_bytes),
+            "current_dtype": max(dtype_counts, key=dtype_counts.get),
+            "other_precisions": {
+                "fp32": fmt_size(total_params * 4),
+                "fp16": fmt_size(total_params * 2),
+                "int8": fmt_size(total_params * 1),
+                "int4": fmt_size(total_params * 0.5),
             },
         }
 
