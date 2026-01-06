@@ -116,12 +116,14 @@ def estimate_memory(model_id: str, revision: str = "main") -> dict:
             "total_parameters": fmt_params(total_params),
             "memory_required": fmt_size(total_bytes),
             "current_dtype": max(dtype_counts, key=dtype_counts.get),
+            "recommended_vram": fmt_size(total_bytes * 1.2),
             "other_precisions": {
                 "fp32": fmt_size(total_params * 4),
                 "fp16": fmt_size(total_params * 2),
                 "int8": fmt_size(total_params * 1),
                 "int4": fmt_size(total_params * 0.5),
             },
+            "overhead_note": "Includes 20% for activations/KV cache (2K context)",
         }
 
 
