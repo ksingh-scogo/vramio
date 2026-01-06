@@ -1,0 +1,10 @@
+services:
+  - type: web
+    runtime: python
+    name: vramio
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server_embedded.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
