@@ -54,6 +54,8 @@ curl "https://vramio.ksingh.in/model?hf_id=meta-llama/Llama-2-7b"
 
 No model downloads. No GPU required. Just math.
 
+Read more about the implementation in [this blog post](https://dev.to/ksingh7/a-free-tool-to-check-vram-requirements-for-any-huggingface-model-4p7h).
+
 ## Self-Host
 
 ```bash
